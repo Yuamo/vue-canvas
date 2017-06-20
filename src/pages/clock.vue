@@ -3,6 +3,8 @@
     <h1>{{msg}}</h1>
     <canvas id="canvas" width="400" height="400">
     </canvas>
+    <br>
+    <Rate allow-half v-model="startValue"></Rate>
   </div>
 </template>
 
@@ -11,10 +13,14 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: 'my vue page ES6'
+      msg: 'my vue canvas clock',
+      startValue: 2
     }
   },
   watch: {
+    startValue: function () {
+      console.log(this.startValue)
+    }
   },
   computed: {
   },

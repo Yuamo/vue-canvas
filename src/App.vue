@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <router-view></router-view>
-    <!--<canvas id="canvas" class="canvas"></canvas>-->
+    <Button type="info" @click="jump('/')">主页面</Button>
+    <Button type="success" @click="jump('/clock')">时钟页面</Button>
+    <Button type="warning" @click="jump('/figure')">多边形</Button>
+    <Button type="error" @click="jump('/number')">数字</Button>
+    <div class=" box ">
+      <transition name="slide-fade">
+        <router-view></router-view>
+      </transition>
+    </div>
+    <!--<canvas id="canvas " class="canvas "></canvas>-->
   </div>
 </template>
 
@@ -65,6 +72,20 @@ export default {
 </script>
 
 <style>
+.slide-fade-enter-active {
+  transition: all .6s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-active {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.box {
+  margin-top: 50px;
+}
+
 .canvas {
   position: absolute;
   z-index: -1;
